@@ -8,7 +8,7 @@ public class Main {
         int decimalFormat = 0;
         for (int i = binaryFormat.length() - 1; i >= 0; i--) {
             if (binaryFormat.charAt(i) == '1') {
-                decimalFormat += Math.pow(2, (binaryFormat.length() - 1 - i));
+                decimalFormat += 1 << (binaryFormat.length() - 1 - i);
             }
         }
         System.out.println("\"" + binaryFormat + "\" -> " + decimalFormat);
@@ -122,9 +122,21 @@ public class Main {
         int secondNumber = scan.nextInt();
         gcd(firsNumber, secondNumber);
         //Fifth task
+        System.out.print("Input number which bit you want to change: ");
         int numberToChange = scan.nextInt();
+        System.out.print("Input position of bit which you want to change: ");
         int bitPosition = scan.nextInt();
         changeBit(numberToChange, bitPosition);
+//            int i = 1;
+//            Object object = new Object();
+//            Main memory = new Main();
+//            memory.exMethod(object);
+
+    }
+
+    public void exMethod(Object param) {
+        String string = param.toString();
+        System.out.println(string);
     }
 
 }
