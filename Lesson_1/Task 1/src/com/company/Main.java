@@ -111,9 +111,9 @@ public class Main {
         if (firstNumber == 0 || secondNumber == 0) {
             return firstNumber | secondNumber;
         }
-        if ((firstNumber & secondNumber) == firstNumber) {
-            return firstNumber;
-        }
+//        if ((firstNumber & secondNumber) == firstNumber) {
+//            return firstNumber;
+//        }
 //        if ((firstNumber & 1) == 0 && (secondNumber & 1) == 0) {
 //            return gcd2(firstNumber >> 1, secondNumber >> 1) << 1;
 //        } else if ((firstNumber & 1) == 0) {
@@ -128,7 +128,9 @@ public class Main {
         if ((firstNumber & 1) == 0) {
             return ((secondNumber & 1) == 0) ? (gcd2(firstNumber >> 1, secondNumber >> 1) << 1) : gcd2(firstNumber >> 1, secondNumber);
         } else {
-            return ((secondNumber & 1) == 0) ? gcd2(firstNumber, secondNumber >> 1) : gcd2(secondNumber, (firstNumber > secondNumber) ? firstNumber - secondNumber : secondNumber- firstNumber);
+            return ((secondNumber & 1) == 0) ?
+                    gcd2(firstNumber, secondNumber >> 1)
+                    : gcd2(secondNumber, ((firstNumber > secondNumber) ? firstNumber - secondNumber : secondNumber- firstNumber));
         }
     }
 
@@ -145,7 +147,7 @@ public class Main {
         String binaryFormat = scan.next();
         transformToBinary(binaryFormat);
         //Second task
-        System.out.print("Input number which sign you want to transform: ");
+        System.out.print("Input number which sign you want to change: ");
         int negativeNumber = scan.nextInt();
         changeSign(negativeNumber);
         //Third task
